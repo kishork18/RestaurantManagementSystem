@@ -20,7 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
 import jakarta.servlet.http.HttpServletRequest;
-
+import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class AppConfig {
@@ -81,7 +81,8 @@ public class AppConfig {
 						.hasAnyRole("ADMIN").requestMatchers("/tables/**").hasAnyRole("ADMIN").anyRequest()
 						.authenticated())
 
-				.csrf(c -> c.disable())
+				.csrf(c -> c.disable()).oauth2Login(withDefaults())
+                .formLogin(withDefaults())
 
 		;
 		http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
