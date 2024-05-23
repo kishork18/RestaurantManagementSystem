@@ -82,7 +82,6 @@ public class AppConfig {
 						.authenticated())
 
 				.csrf(c -> c.disable()).oauth2Login(withDefaults())
-                .formLogin(withDefaults())
 
 		;
 		http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
