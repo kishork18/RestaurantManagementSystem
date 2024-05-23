@@ -14,7 +14,7 @@ This project is a Restaurant Management System built using Spring Boot, Spring S
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/restaurant-management-system.git
+    git clone https://github.com/kishork18/RestaurantManagementSystem.git
     cd restaurant-management-system
     ```
 
