@@ -74,7 +74,11 @@ public class AppConfig {
 				})
 				.authorizeHttpRequests(auth -> auth.requestMatchers("/swagger-ui*/**", "/v3/api-docs/**").permitAll()
 						.requestMatchers("user/login", "/user/register").permitAll()
-						.requestMatchers(HttpMethod.PATCH, "/user/updateuser").hasAnyRole("ADMIN").anyRequest()
+						.requestMatchers(HttpMethod.PATCH, "/user/update", "/user/getbyemail", "/user/getall")
+						.hasAnyRole("ADMIN").requestMatchers("/restaurant/**").hasAnyRole("ADMIN")
+						.requestMatchers("/menu/addMenu", "/menu/delete").hasAnyRole("ADMIN")
+						.requestMatchers("/menuitem/**").hasAnyRole("ADMIN").requestMatchers("/orderitem/**")
+						.hasAnyRole("ADMIN").requestMatchers("/tables/**").hasAnyRole("ADMIN").anyRequest()
 						.authenticated())
 
 				.csrf(c -> c.disable())

@@ -48,6 +48,7 @@ public class User implements UserDetails, CredentialsContainer {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Order> orders;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Reservation> reservations;
 
 	@Override
